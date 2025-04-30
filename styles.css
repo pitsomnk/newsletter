@@ -1,0 +1,451 @@
+/* 1. Root Variables */
+:root {
+  /* Primary Colors */
+  --Red: hsl(4, 100%, 67%);
+  
+  /* Neutral Colors */
+  --blue-800: hsl(234, 29%, 20%);
+  --blue-700: hsl(235, 18%, 26%);
+  --grey: hsl(0, 0%, 58%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Additional Color Variables */
+  --tomato: var(--Red);
+  --tomato-light: hsla(4, 100%, 67%, 0.1);
+}
+
+/* 2. Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--blue-800);
+  background-color: var(--blue-700);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.5;
+  padding-top: 80px; /* For fixed navbar */
+}
+
+/* 3. Typography */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--blue-800);
+  font-weight: 700;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* 4. Layout Utilities */
+main {
+  width: 100%;
+  max-width: 928px;
+  margin: 0 auto;
+}
+
+/* 5. Component Styles */
+/* 5.1 Container */
+.container {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  padding: 4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mobile-image {
+  display: none;
+}
+
+/* 5.2 Benefits List */
+.benefits-list {
+  margin: 1.5rem 0;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.benefits-list li img {
+  margin-top: 0.25rem;
+}
+
+/* 5.3 Form Styles */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.error-message {
+  color: var(--Red);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: none;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--blue-800);
+}
+
+input.error {
+  border-color: var(--Red);
+  background-color: var(--tomato-light);
+  color: var(--Red);
+}
+
+input.error:focus {
+  outline: 2px solid var(--Red);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--blue-800);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--Red);
+  box-shadow: 0 5px 15px rgba(255, 98, 87, 0.5);
+}
+
+/* 5.4 Success Container */
+.success-container {
+  max-width: 500px;
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: 30px;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.success-container h1 {
+  margin-top: 2rem;
+}
+
+.success-container p {
+  margin: 1.5rem 0 2rem;
+}
+
+.success-container button {
+  margin-top: 1rem;
+}
+
+.success-icon {
+  width: 50px;
+  height: 50px;
+}
+
+#confirmation-email {
+  font-weight: 700;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 6. Utility Classes */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--white);
+}
+
+.attribution a {
+  color: var(--Red);
+  text-decoration: underline;
+}
+
+/* 7. Responsive Styles */
+@media (max-width: 950px) {
+  body {
+    background-color: var(--white);
+  }
+  
+  main {
+    max-width: 100%;
+    height: 100vh;
+  }
+  
+  .container {
+    flex-direction: column-reverse;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .content {
+    padding: 2rem;
+  }
+  
+  .image-container {
+    padding: 0;
+    height: auto;
+  }
+  
+  .desktop-image {
+    display: none;
+  }
+  
+  .mobile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .success-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2rem;
+  }
+  
+  .success-container p {
+    flex-grow: 1;
+  }
+  
+  .success-container button {
+    margin-top: 2rem;
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 928px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--blue-800);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--Red);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--Red);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--blue-800);
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    flex-direction: column;
+    background-color: var(--white);
+    width: 70%;
+    height: 100%;
+    padding-top: 4rem;
+    transition: 0.3s;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    display: block;
+    padding: 0.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hamburger animation when menu is open */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* Overlay for mobile menu */
+@media (max-width: 768px) {
+  .nav-links::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  .nav-links.active::before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
